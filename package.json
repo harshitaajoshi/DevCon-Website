@@ -4,6 +4,7 @@
   "description": "DevCon 3.0 — Annual Developers Conference by GDG on Campus, Texas Tech University",
   "scripts": {
     "dev": "npx serve . -p 8765",
+    "build": "echo 'Static site - no build needed'",
     "start": "npx serve ."
   }
 }
