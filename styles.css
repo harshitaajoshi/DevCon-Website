@@ -200,6 +200,14 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .spk-link:hover{opacity:.6}
 
 /* ============================================
+   GUESTS
+   ============================================ */
+.guests-tba{text-align:center;padding:60px 40px;border:1px dashed var(--brd);border-radius:var(--r);max-width:600px;margin:48px auto 0}
+.guests-ico{font-size:2rem;color:var(--lime);margin-bottom:16px}
+.guests-tba h3{font-family:var(--hd);font-size:1.4rem;color:#fff;margin:0 0 10px}
+.guests-tba p{font-family:var(--bd);font-size:.85rem;color:var(--tx2);margin:0;line-height:1.6}
+
+/* ============================================
    AGENDA
    ============================================ */
 .ag-list{max-width:800px}
