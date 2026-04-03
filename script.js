@@ -241,8 +241,8 @@ function initSpeakerModals(){
       company:'Meta',
       loc:'San Francisco, CA',
       linkedin:'https://www.linkedin.com/in/minaghashami/',
-      talk:'Generative AI and Its Growth in Industry & How It\'s Changing Career Paths',
-      abstract:'Generative AI is rapidly transforming industries and reshaping how engineers, researchers, and developers approach problem-solving. In this session, Mina Ghashami will explore how generative AI is evolving across industry applications, from product development to automation and decision-making. She will also discuss how the rise of generative AI is changing career paths in technology, the skills students should focus on, and how aspiring engineers can position themselves for opportunities in AI-driven industries.'
+      talk:'The Evolution of Generative AI: Milestones That Changed the Industry',
+      abstract:'Generative AI has evolved at an incredible pace: from chatbots that surprised the world to intelligent systems that can reason, use tools, and interact with the digital world. In this talk, I will tell that story through the major milestones of the last few years, including ChatGPT, GPT-4, open models, reasoning models, agents, and MCP. We will also look at how these breakthroughs changed the industry, influenced what companies are building, and reshaped the skills that matter for the next generation of engineers. For students, this is not just a story about AI\'s past; it is a guide to understanding the future they are stepping into and the roles the industry increasingly demands.'
     },
     sachin:{
       name:'Sachin Paryani',
