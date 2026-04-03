@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevCon 3.0 — Annual Developers Conference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+</head>
+<body>
+
+  <div class="cursor-dot" id="cDot"></div>
+  <div class="cursor-ring" id="cRing"></div>
+  <div class="grain"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <canvas id="hero3d"></canvas>
+
+    <!-- Top nav — matches reference: info center, links stacked right -->
+    <nav class="hero-nav">
+      <div class="nav-info">
+        <span class="nav-ev"><span class="nav-dot"></span> Lubbock, TX</span>
+        <span class="nav-ev">04.08.26</span>
+        <span class="nav-ev">5:30 – 8:30 PM</span>
+      </div>
+      <div class="nav-links">
+        <a href="#schedule">AGENDA</a>
+        <a href="#speakers">SPEAKERS</a>
+        <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-texas-tech-university-lubbock-united-states-presents-devcon-30-annual-developers-conference-texas-tech-university/" target="_blank">REGISTER</a>
+      </div>
+    </nav>
+
+    <!-- Main title — top left, one word, squished -->
+    <h1 class="hero-title">DevCon</h1>
+    <div class="hero-hosted">
+      <img src="gdg-logo.png" alt="GDG" class="gdg-logo">
+      <span>Hosted by GDG on Campus — Texas Tech University</span>
+    </div>
+
+    <!-- Secondary title — bottom right -->
+    <h2 class="hero-sub">3.0</h2>
+
+    <!-- Bottom left — description + RSVP -->
+    <div class="hero-foot">
+      <p class="hero-para">Welcome to the annual developers conference by GDG on Campus, Texas Tech University. An evening of talks, networking, and&nbsp;innovation.</p>
+      <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-texas-tech-university-lubbock-united-states-presents-devcon-30-annual-developers-conference-texas-tech-university/" target="_blank" class="hero-cta" data-magnetic>
+        <span>RSVP NOW</span>
+        <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <!-- Mobile burger -->
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    <div class="mob-menu" id="mobMenu">
+      <a href="#about">About</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#schedule">Agenda</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register">Register</a>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="panel" id="about">
+    <div class="spread">
+      <div class="spread-left">
+        <span class="dot-label rv"><span class="dot"></span> ABOUT</span>
+        <h2 class="sec-h rv">WHAT<br>IS<br>DEVCON</h2>
+      </div>
+      <div class="spread-right">
+        <p class="spread-p rv">One of the largest student-led technology conferences in West Texas — bringing students, developers, and tech enthusiasts together for an evening of innovation and professional growth.</p>
+        <p class="spread-p rv">Explore emerging technologies, gain industry insights, and connect with professionals who share a passion for computing and innovation.</p>
+      </div>
+    </div>
+
+    <div class="card-row">
+      <div class="crd crd-lime rv" data-tilt>
+        <i class="fas fa-rocket crd-ico"></i>
+        <h3 class="crd-title">Innovation Hub</h3>
+        <p>DevCon serves as a platform where students explore emerging technologies, gain industry insights, and connect with professionals and peers.</p>
+      </div>
+      <div class="crd crd-dark rv" data-tilt>
+        <i class="fas fa-people-arrows crd-ico-dark"></i>
+        <h3 class="crd-title-dark">Networking</h3>
+        <p class="crd-desc">Connect with developers, researchers, and industry leaders. Build relationships that last beyond the conference.</p>
+      </div>
+      <div class="crd crd-dark rv" data-tilt>
+        <i class="fas fa-microphone-lines crd-ico-dark"></i>
+        <h3 class="crd-title-dark">Tech Talks</h3>
+        <p class="crd-desc">Deep dives into AI, quantum computing, ML engineering, and the future of software from world-class speakers.</p>
+      </div>
+    </div>
+
+    <div class="stat-row rv">
+      <div class="st"><span class="st-n" data-target="200">0</span><span class="st-p">+</span><span class="st-l">Attendees</span></div>
+      <div class="st"><span class="st-n" data-target="5">0</span><span class="st-p">+</span><span class="st-l">Speakers</span></div>
+      <div class="st"><span class="st-n" data-target="4">0</span><span class="st-l">Years</span></div>
+    </div>
+  </section>
+
+  <!-- ===== SPEAKERS ===== -->
+  <section class="panel" id="speakers">
+    <div class="spread spread-full">
+      <div class="spread-left">
+        <span class="dot-label rv"><span class="dot"></span> SPEAKERS</span>
+        <h2 class="sec-h sec-h-xl rv">MEET<br>OUR<br>SPEAKERS</h2>
+      </div>
+      <div class="spread-right spread-right-low">
+        <p class="spread-p rv">Learn from worldwide experts, connect with like-minded professionals, and move forward together.</p>
+      </div>
+    </div>
+
+    <div class="spk-row">
+      <div class="spk spk-featured rv" data-tilt data-speaker="ej">
+        <img src="ej.png" alt="Eric Johnson" class="spk-photo">
+        <div class="spk-info">
+          <h3>Eric Johnson</h3>
+          <span class="spk-role">Principal Developer Advocate</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Amazon Web Services (AWS)</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Colorado, US</span>
+          <a href="https://www.linkedin.com/in/singledigit/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk spk-featured rv" data-tilt data-speaker="mina">
+        <img src="mina.png" alt="Mina Ghashami" class="spk-photo">
+        <div class="spk-info">
+          <h3>Mina Ghashami</h3>
+          <span class="spk-role">ML Engineer · O'Reilly Author</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Meta</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> San Francisco, CA</span>
+          <a href="https://www.linkedin.com/in/minaghashami/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk spk-featured rv" data-tilt data-speaker="sachin">
+        <img src="sachin.png" alt="Sachin Paryani" class="spk-photo">
+        <div class="spk-info">
+          <h3>Sachin Paryani</h3>
+          <span class="spk-role">Senior Software Engineer · AI Platform</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Netflix</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Seattle, WA</span>
+          <a href="https://www.linkedin.com/in/sachinparyani/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk spk-featured rv" data-tilt data-speaker="vaidehi">
+        <img src="cloudguru.png" alt="Vaidehi S. Tripathi" class="spk-photo">
+        <div class="spk-info">
+          <h3>Vaidehi S. Tripathi</h3>
+          <span class="spk-role">Google Developer Expert · ML</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Elevance Health</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Indianapolis, IN</span>
+          <a href="https://www.linkedin.com/in/thecloudguru/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE ===== -->
+  <section class="panel" id="schedule">
+    <div class="spread">
+      <div class="spread-left">
+        <span class="dot-label rv"><span class="dot"></span> AGENDA</span>
+        <h2 class="sec-h rv">EVENT<br>RUNDOWN</h2>
+      </div>
+      <div class="spread-right">
+        <p class="spread-p rv">Wednesday, April 8, 2026 — Evening Conference</p>
+      </div>
+    </div>
+
+    <div class="ag-list">
+      <div class="ag rv"><span class="ag-t ag-gen">CHECK-IN</span><div><h4>Check-In & Seating</h4><p>Arrive, grab your badge, and get settled.</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-gen">PRE-EVENT</span><div><h4>Pre-Welcome for Speakers</h4><p>Speaker introductions and prep.</p></div></div>
+      <div class="ag ag-hl rv"><span class="ag-t ag-key">WELCOME</span><div><h4>Welcome Speech</h4><p>Opening address.</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-talk">SPEAKER 1</span><div><h4>Eric Johnson</h4><p>Building Distributed Video Approval Pipelines</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-talk">SPEAKER 2</span><div><h4>Mina Ghashami</h4><p>Generative AI and Its Growth in Industry &amp; How It's Changing Career Paths</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-net">NETWORKING</span><div><h4>Networking Time with Speakers</h4><p>One-on-one with speakers. Ask questions, build connections.</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-talk">SPEAKER 3</span><div><h4>Sachin Paryani</h4><p>How I Think About Systems Now (vs. When I Was in College)</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-talk">SPEAKER 4</span><div><h4>Vaidehi S. Tripathi</h4><p>Building Next Gen Apps with Google Antigravity IDE</p></div></div>
+      <div class="ag ag-hl rv"><span class="ag-t ag-key">CLOSING</span><div><h4>Closing Speeches</h4><p>Closing remarks and thank you.</p></div></div>
+      <div class="ag rv"><span class="ag-t ag-fun">AFTER-PARTY</span><div><h4>Among Us Time!</h4><p>Game night for whoever stays. Imposters welcome.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===== HIGHLIGHTS ===== -->
+  <section class="panel" id="highlights">
+    <span class="dot-label rv"><span class="dot"></span> HOW IT WAS LAST YEAR</span>
+    <h2 class="sec-h sec-h-xl rv">PAST<br>DEVCON</h2>
+
+    <div class="slideshow">
+      <div class="slideshow-track">
+        <div class="slide"><img src="CL6A4563.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="CL6A4329.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="CL6A4393.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="CL6A4183.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="CL6A4242.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="CL6A4356.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="IMG_8028.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="IMG_8042.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="IMG_8044.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="IMG_8046.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="IMG_8064.JPG" alt="DevCon"></div>
+      </div>
+      <div class="slide-counter"><span class="counter-cur">01</span> / <span class="counter-total">11</span></div>
+      <div class="slideshow-nav"><button class="ss-prev"><i class="fas fa-arrow-left"></i></button><button class="ss-next"><i class="fas fa-arrow-right"></i></button></div>
+    </div>
+    <div class="slideshow-dots"></div>
+  </section>
+
+  <!-- ===== PARTNERS ===== -->
+  <section class="panel" id="partners">
+    <div class="spread">
+      <div class="spread-left">
+        <span class="dot-label rv"><span class="dot"></span> PARTNERS</span>
+        <h2 class="sec-h sec-h-xl rv">&amp;<br>SPONSORS</h2>
+      </div>
+    </div>
+    <div class="ptr-row">
+      <div class="ptr ptr-cs rv" data-tilt><img src="ttu-cs-dept.png" alt="TTU Department of Computer Science" class="ptr-logo"></div>
+      <div class="ptr ptr-tcl rv" data-tilt><img src="tcl-logo.png" alt="Tactical Computing Labs" class="ptr-logo-dark"></div>
+      <div class="ptr ptr-sga rv" data-tilt><img src="sga-logo.png" alt="Student Government Association" class="ptr-logo-fill"></div>
+    </div>
+    <div class="ptr-cta rv">
+      <a href="mailto:ttudsc@gmail.com" class="pill-btn" data-magnetic><span>BECOME A PARTNER</span><span class="pill-arrow"><i class="fas fa-arrow-right"></i></span></a>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="panel" id="faq">
+    <div class="spread">
+      <div class="spread-left">
+        <span class="dot-label rv"><span class="dot"></span> FAQ</span>
+        <h2 class="sec-h rv">GOT<br>QUESTIONS?</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="fq rv"><button class="fq-q"><span>Who can attend?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Open to all students regardless of major or experience. Non-students welcome too.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>Is there a cost?</span><span class="fq-x">+</span></button><div class="fq-a"><p>No — completely free. Dinner is also provided at no cost.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>What should I bring?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Your student ID and curiosity. We provide dinner, swag, and name badges.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>Do I need coding experience?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Not at all. Talks cover career development, industry trends, and more.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>Where is the event?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Texas Tech University, Lubbock, TX. Exact venue shared after registration.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>Will there be food?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Yes! Complimentary dinner. Mention dietary restrictions during registration.</p></div></div>
+      <div class="fq rv"><button class="fq-q"><span>Can I volunteer or speak?</span><span class="fq-x">+</span></button><div class="fq-a"><p>Absolutely. Reach out at gdsc@ttu.edu.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="ft-box">
+      <div class="ft-l"><span class="dot-label"><span class="dot"></span> CONTACTS</span><h3>GDG on Campus<br>Texas Tech University</h3><a href="mailto:ttudsc@gmail.com" class="ft-email">ttudsc@gmail.com</a></div>
+      <div class="ft-r"><span class="dot-label"><span class="dot"></span> SOCIAL MEDIA</span><div class="ft-soc"><a href="https://www.instagram.com/gdg_ttu/" target="_blank">Instagram</a><a href="https://techconnect.dsa.ttu.edu/organization/dsc" target="_blank">TechConnect</a><a href="https://discord.gg/2vWsUyrw" target="_blank">Discord</a><a href="https://www.linkedin.com/company/google-developer-student-club-ttu/?viewAsMember=true" target="_blank">LinkedIn</a></div></div>
+    </div>
+    <div class="ft-bar"><div class="ft-links"><a href="#about">ABOUT</a><a href="#speakers">SPEAKERS</a><a href="#schedule">AGENDA</a></div><a href="#home" class="ft-up" data-magnetic><i class="fas fa-arrow-up"></i></a></div>
+    <div class="ft-copy">&copy; 2026 DevCon — GDG on Campus, Texas Tech University</div>
+  </footer>
+
+  <!-- Speaker Modal -->
+  <div class="spk-modal" id="spkModal">
+    <div class="spk-modal-overlay"></div>
+    <div class="spk-modal-content">
+      <button class="spk-modal-close"><i class="fas fa-xmark"></i></button>
+      <div class="spk-modal-header">
+        <img src="" alt="" class="spk-modal-photo" id="modalPhoto">
+        <div class="spk-modal-info">
+          <h2 id="modalName"></h2>
+          <span class="spk-modal-role" id="modalRole"></span>
+          <span class="spk-modal-company" id="modalCompany"></span>
+          <span class="spk-modal-loc" id="modalLoc"></span>
+          <a href="#" target="_blank" class="spk-modal-linkedin" id="modalLinkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk-modal-body">
+        <h3 class="spk-modal-talk-label">Talk Topic</h3>
+        <h2 class="spk-modal-talk" id="modalTalk"></h2>
+        <h3 class="spk-modal-abstract-label">Abstract</h3>
+        <p class="spk-modal-abstract" id="modalAbstract"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

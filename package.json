@@ -1,0 +1,9 @@
+{
+  "name": "devcon-3.0",
+  "version": "1.0.0",
+  "description": "DevCon 3.0 — Annual Developers Conference by GDG on Campus, Texas Tech University",
+  "scripts": {
+    "dev": "npx serve . -p 8765",
+    "start": "npx serve ."
+  }
+}
