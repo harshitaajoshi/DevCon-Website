@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DevCon 3.0 — Annual Developers Conference</title>
+  <link rel="icon" type="image/png" href="images/gdg-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,8 +39,17 @@
     <!-- Main title — top left, one word, squished -->
     <h1 class="hero-title">DevCon</h1>
     <div class="hero-hosted">
-      <img src="gdg-logo.png" alt="GDG" class="gdg-logo">
+      <img src="images/gdg-logo.png" alt="GDG" class="gdg-logo">
       <span>Hosted by GDG on Campus — Texas Tech University</span>
+    </div>
+    <div class="hero-timer" id="heroCountdown">
+      <div class="cd-block"><span class="cd-val" id="cdDays">00</span><span class="cd-lbl">days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-val" id="cdHours">00</span><span class="cd-lbl">hours</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-val" id="cdMins">00</span><span class="cd-lbl">min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-val" id="cdSecs">00</span><span class="cd-lbl">sec</span></div>
     </div>
 
     <!-- Secondary title — bottom right -->
@@ -117,7 +127,7 @@
 
     <div class="spk-row">
       <div class="spk spk-featured rv" data-tilt data-speaker="ej">
-        <img src="ej.png" alt="Eric Johnson" class="spk-photo">
+        <img src="images/ej.png" alt="Eric Johnson" class="spk-photo">
         <div class="spk-info">
           <h3>Eric Johnson</h3>
           <span class="spk-role">Principal Developer Advocate</span>
@@ -127,7 +137,7 @@
         </div>
       </div>
       <div class="spk spk-featured rv" data-tilt data-speaker="mina">
-        <img src="mina.png" alt="Mina Ghashami" class="spk-photo">
+        <img src="images/mina.png" alt="Mina Ghashami" class="spk-photo">
         <div class="spk-info">
           <h3>Mina Ghashami</h3>
           <span class="spk-role">ML Engineer · O'Reilly Author</span>
@@ -137,7 +147,7 @@
         </div>
       </div>
       <div class="spk spk-featured rv" data-tilt data-speaker="sachin">
-        <img src="sachin.png" alt="Sachin Paryani" class="spk-photo">
+        <img src="images/sachin.png" alt="Sachin Paryani" class="spk-photo">
         <div class="spk-info">
           <h3>Sachin Paryani</h3>
           <span class="spk-role">Senior Software Engineer · AI Platform</span>
@@ -147,7 +157,7 @@
         </div>
       </div>
       <div class="spk spk-featured rv" data-tilt data-speaker="vaidehi">
-        <img src="cloudguru.png" alt="Vaidehi S. Tripathi" class="spk-photo">
+        <img src="images/cloudguru.png" alt="Vaidehi S. Tripathi" class="spk-photo">
         <div class="spk-info">
           <h3>Vaidehi S. Tripathi</h3>
           <span class="spk-role">Google Developer Expert · ML</span>
@@ -170,9 +180,47 @@
         <p class="spread-p rv">Beyond our keynote speakers, DevCon 3.0 welcomes distinguished guests from across the tech industry and academia — leaders, mentors, and innovators who are shaping the future of technology.</p>
       </div>
     </div>
+    <div class="guest-labels">
+      <span></span>
+      <span></span>
+      <span class="sponsor-tag rv"><span class="sponsor-tag-dot"></span> Sponsor Highlight</span>
+    </div>
+    <div class="spk-row guest-row">
+      <div class="spk spk-featured rv" data-tilt data-guest="faller">
+        <img src="images/rolland.jpeg" alt="Roland Faller, Ph.D." class="spk-photo">
+        <div class="spk-info">
+          <h3>Roland Faller, Ph.D.</h3>
+          <span class="spk-role">Dean</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Edward E. Whitacre Jr. College of Engineering</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Texas Tech University</span>
+          <a href="https://www.linkedin.com/in/rolanbadrislamov/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk spk-featured rv" data-tilt data-guest="yongchen">
+        <img src="images/YongChen_2023.jpg" alt="Yong Chen" class="spk-photo" style="object-position:center top">
+        <div class="spk-info">
+          <h3>Yong Chen</h3>
+          <span class="spk-role">Professor & Department Chair</span>
+          <span class="spk-company"><i class="fas fa-building"></i> Department of Computer Science</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Texas Tech University</span>
+          <a href="https://www.linkedin.com/in/yong-chen-92174410/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="spk spk-featured rv" data-tilt data-guest="atharva">
+        <div class="spk-photo-wrap"><img src="images/AtharvaLade.jpg" alt="Atharva Lade" class="spk-photo spk-photo-zoom"></div>
+        <div class="spk-info">
+          <h3>Atharva Lade</h3>
+          <span class="spk-role">Contributor · Guest Speaker</span>
+          <span class="spk-company"><i class="fas fa-building"></i> The Apache Software Foundation (Iggy)</span>
+          <span class="spk-loc"><i class="fas fa-location-dot"></i> Austin, TX</span>
+          <a href="https://www.linkedin.com/in/atharvalade/" target="_blank" class="spk-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
     <div class="guests-tba rv">
       <i class="fas fa-user-group guests-ico"></i>
-      <h3>To Be Announced</h3>
+      <h3>More Guests To Be Announced</h3>
       <p>Stay tuned — our guest lineup is being finalized. Check back soon for updates.</p>
     </div>
   </section>
@@ -210,17 +258,17 @@
 
     <div class="slideshow">
       <div class="slideshow-track">
-        <div class="slide"><img src="CL6A4563.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="CL6A4329.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="CL6A4393.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="CL6A4183.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="CL6A4242.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="CL6A4356.jpg" alt="DevCon"></div>
-        <div class="slide"><img src="IMG_8028.JPG" alt="DevCon"></div>
-        <div class="slide"><img src="IMG_8042.JPG" alt="DevCon"></div>
-        <div class="slide"><img src="IMG_8044.JPG" alt="DevCon"></div>
-        <div class="slide"><img src="IMG_8046.JPG" alt="DevCon"></div>
-        <div class="slide"><img src="IMG_8064.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4563.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4329.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4393.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4183.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4242.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/CL6A4356.jpg" alt="DevCon"></div>
+        <div class="slide"><img src="images/IMG_8028.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="images/IMG_8042.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="images/IMG_8044.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="images/IMG_8046.JPG" alt="DevCon"></div>
+        <div class="slide"><img src="images/IMG_8064.JPG" alt="DevCon"></div>
       </div>
       <div class="slide-counter"><span class="counter-cur">01</span> / <span class="counter-total">11</span></div>
       <div class="slideshow-nav"><button class="ss-prev"><i class="fas fa-arrow-left"></i></button><button class="ss-next"><i class="fas fa-arrow-right"></i></button></div>
@@ -237,15 +285,15 @@
       </div>
     </div>
     <div class="ptr-row">
-      <div class="ptr ptr-cs rv" data-tilt><img src="ttu-cs-dept.png" alt="TTU Department of Computer Science" class="ptr-logo"></div>
-      <div class="ptr ptr-tcl rv" data-tilt><img src="tcl-logo.png" alt="Tactical Computing Labs" class="ptr-logo-dark"></div>
-      <div class="ptr ptr-sga rv" data-tilt><img src="sga-logo.png" alt="Student Government Association" class="ptr-logo-fill"></div>
-      <a href="https://laserdata.com" target="_blank" class="ptr ptr-ld rv" data-tilt><img src="laserdata-logo.svg" alt="LaserData" class="ptr-logo-ld"></a>
+      <div class="ptr ptr-cs rv" data-tilt><img src="images/ttu-cs-dept.png" alt="TTU Department of Computer Science" class="ptr-logo"></div>
+      <div class="ptr ptr-tcl rv" data-tilt><img src="images/tcl-logo.png" alt="Tactical Computing Labs" class="ptr-logo-dark"></div>
+      <div class="ptr ptr-sga rv" data-tilt><img src="images/sga-logo.png" alt="Student Government Association" class="ptr-logo-fill"></div>
+      <a href="https://laserdata.com" target="_blank" class="ptr ptr-ld rv" data-tilt><img src="images/laserdata-logo.svg" alt="LaserData" class="ptr-logo-ld"></a>
     </div>
     <span class="dot-label rv tp-label"><span class="dot"></span> TRAVEL PARTNERS</span>
     <div class="tp-row">
-      <a href="https://aws.amazon.com" target="_blank" class="tp rv" data-tilt><img src="aws-logo.svg" alt="Amazon Web Services" class="tp-logo"></a>
-      <a href="https://google.com" target="_blank" class="tp rv" data-tilt><img src="google-logo.svg" alt="Google" class="tp-logo"></a>
+      <a href="https://aws.amazon.com" target="_blank" class="tp rv" data-tilt><img src="images/aws-logo.svg" alt="Amazon Web Services" class="tp-logo"></a>
+      <a href="https://google.com" target="_blank" class="tp rv" data-tilt><img src="images/google-logo.svg" alt="Google" class="tp-logo"></a>
     </div>
 
   </section>
@@ -295,10 +343,16 @@
         </div>
       </div>
       <div class="spk-modal-body">
-        <h3 class="spk-modal-talk-label">Talk Topic</h3>
-        <h2 class="spk-modal-talk" id="modalTalk"></h2>
-        <h3 class="spk-modal-abstract-label">Abstract</h3>
-        <p class="spk-modal-abstract" id="modalAbstract"></p>
+        <div id="modalBioSection" style="display:none">
+          <h3 class="spk-modal-talk-label">About</h3>
+          <p class="spk-modal-abstract" id="modalBio"></p>
+        </div>
+        <div id="modalTalkSection">
+          <h3 class="spk-modal-talk-label">Talk Topic</h3>
+          <h2 class="spk-modal-talk" id="modalTalk"></h2>
+          <h3 class="spk-modal-abstract-label">Abstract</h3>
+          <p class="spk-modal-abstract" id="modalAbstract"></p>
+        </div>
       </div>
     </div>
   </div>

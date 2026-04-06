@@ -86,6 +86,13 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .gdg-logo{height:16px;width:auto;vertical-align:middle;position:relative;top:-1px}
 .hero-hosted span{font-family:var(--bd);font-size:12px;font-weight:400;color:var(--tx2);letter-spacing:.5px}
 
+/* --- Countdown timer — under hosted line --- */
+.hero-timer{position:absolute;top:calc(90px + clamp(90px,13vw,180px) + 36px);left:80px;z-index:10;display:flex;align-items:baseline;gap:4px;opacity:0;animation:fadeIn .8s var(--ease) .6s forwards}
+.cd-block{display:flex;align-items:baseline;gap:3px}
+.cd-val{font-family:var(--bd);font-size:18px;font-weight:500;color:var(--tx2);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.cd-lbl{font-family:var(--bd);font-size:10px;font-weight:400;color:var(--lime);letter-spacing:1px;opacity:.7}
+.cd-sep{font-family:var(--bd);font-size:16px;font-weight:300;color:var(--tx3);margin:0 6px}
+
 /* --- Secondary title — bottom right --- */
 .hero-sub{position:absolute;bottom:50px;right:80px;z-index:10;font-family:var(--hd);font-weight:700;font-size:clamp(80px,11vw,160px);line-height:.88;letter-spacing:-2px;color:var(--lime);transform:scaleX(.82);transform-origin:right bottom;opacity:0;animation:heroIn 1.2s var(--ease) .35s forwards}
 
@@ -179,6 +186,8 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .spk-dark:hover{border-color:rgba(255,255,255,.15)}
 
 .spk-photo{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;margin-bottom:20px;filter:grayscale(.3);transition:filter .4s,transform .4s}
+.spk-photo-wrap{width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;margin-bottom:20px}
+.spk-photo-zoom{margin-bottom:0;transform:scale(1.5);object-position:center 30%}
 .spk-featured:hover .spk-photo{filter:grayscale(0);transform:scale(1.03)}
 
 .spk-num{font-family:var(--hd);font-size:5rem;color:var(--tx3);opacity:.12}
@@ -204,7 +213,11 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
    ============================================ */
 #speakers{padding-bottom:40px}
 #guests{padding-top:0}
-.guests-tba{text-align:center;padding:60px 40px;border:1px dashed var(--brd);border-radius:var(--r);max-width:600px;margin:48px auto 0}
+.guest-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:0 auto 10px}
+.sponsor-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--bd);font-size:.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--lime);padding-left:2em}
+.sponsor-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime),0 0 16px rgba(212,232,122,.4);animation:pulse 2s infinite}
+.guest-row{max-width:900px;margin:0 auto;grid-template-columns:repeat(3,1fr)}
+.guests-tba{text-align:center;padding:60px 40px;max-width:600px;margin:48px auto 0}
 .guests-ico{font-size:2rem;color:var(--lime);margin-bottom:16px}
 .guests-tba h3{font-family:var(--hd);font-size:1.4rem;color:#fff;margin:0 0 10px}
 .guests-tba p{font-family:var(--bd);font-size:.85rem;color:var(--tx2);margin:0;line-height:1.6}
@@ -344,6 +357,7 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 @media(max-width:1200px){
   .hero-title{left:60px;font-size:clamp(80px,11vw,140px)}
   .hero-sub{right:60px;font-size:clamp(70px,10vw,130px)}
+  .hero-timer{left:60px}
   .hero-foot{left:60px}
   .hero-nav{left:60px;right:60px}
 }
@@ -354,6 +368,7 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
   .spk-row{grid-template-columns:1fr 1fr}
   .hero-title{left:40px;font-size:clamp(70px,10vw,120px)}
   .hero-sub{right:40px;font-size:clamp(60px,9vw,110px)}
+  .hero-timer{left:40px}
   .hero-foot{left:40px}
   .hero-nav{left:40px;right:40px}
   .nav-info{display:none}
@@ -370,6 +385,10 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
   .hero-hosted{left:24px;top:calc(80px + clamp(60px,16vw,100px) + 6px)}
   .gdg-logo{height:18px}
   .hero-sub{bottom:auto;top:50%;right:24px;font-size:clamp(50px,14vw,90px)}
+  .hero-timer{left:24px;top:calc(80px + clamp(60px,16vw,100px) + 34px)}
+  .cd-val{font-size:14px}
+  .cd-lbl{font-size:8px}
+  .cd-sep{font-size:12px;margin:0 4px}
   .hero-foot{left:24px;right:24px;bottom:40px}
   .hero-para{font-size:13px;max-width:260px}
   .hero-cta{font-size:12px;padding:10px 10px 10px 20px;gap:14px}
@@ -432,4 +451,4 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .spk-modal-body{display:flex;flex-direction:column;gap:12px}
 .spk-modal-talk-label,.spk-modal-abstract-label{font-size:.65rem;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;font-family:var(--bd);margin:0}
 .spk-modal-talk{font-family:var(--hd);font-size:1.5rem;color:var(--lime);letter-spacing:-.5px;margin:0 0 8px}
-.spk-modal-abstract{font-size:.9rem;color:var(--tx2);line-height:1.7;font-family:var(--bd);margin:0}
+.spk-modal-abstract{font-size:.9rem;color:var(--tx2);line-height:1.7;font-family:var(--bd);margin:0;white-space:pre-line}

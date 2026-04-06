@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
   if(window.location.hash)history.replaceState(null,null,' ');
   window.scrollTo(0,0);
-  initHero3D();initCursor();initNav();initReveal();initFAQ();initReg();initCounters();initTilt();initMagnetic();initSlideshow();initSpeakerModals();
+  initHero3D();initCursor();initNav();initReveal();initFAQ();initReg();initCounters();initTilt();initMagnetic();initSlideshow();initSpeakerModals();initCountdown();
 });
 
 /* ============================================
@@ -226,7 +226,7 @@ function initSpeakerModals(){
   const speakerData={
     ej:{
       name:'Eric Johnson',
-      photo:'ej.png',
+      photo:'images/ej.png',
       role:'Principal Developer Advocate',
       company:'Amazon Web Services (AWS)',
       loc:'Colorado, US',
@@ -236,7 +236,7 @@ function initSpeakerModals(){
     },
     mina:{
       name:'Mina Ghashami',
-      photo:'mina.png',
+      photo:'images/mina.png',
       role:'ML Engineer · O\'Reilly Author',
       company:'Meta',
       loc:'San Francisco, CA',
@@ -246,7 +246,7 @@ function initSpeakerModals(){
     },
     sachin:{
       name:'Sachin Paryani',
-      photo:'sachin.png',
+      photo:'images/sachin.png',
       role:'Senior Software Engineer · AI Platform',
       company:'Netflix',
       loc:'Seattle, WA',
@@ -256,7 +256,7 @@ function initSpeakerModals(){
     },
     vaidehi:{
       name:'Vaidehi S. Tripathi',
-      photo:'cloudguru.png',
+      photo:'images/cloudguru.png',
       role:'Google Developer Expert · ML',
       company:'Elevance Health',
       loc:'Indianapolis, IN',
@@ -266,23 +266,74 @@ function initSpeakerModals(){
     }
   };
 
+  const guestData={
+    faller:{
+      name:'Roland Faller, Ph.D.',
+      photo:'images/rolland.jpeg',
+      role:'Dean',
+      company:'Edward E. Whitacre Jr. College of Engineering',
+      loc:'Texas Tech University',
+      linkedin:'https://www.linkedin.com/in/rolanbadrislamov/',
+      bio:'Dr. Roland Faller is the Dean of the Edward E. Whitacre Jr. College of Engineering at Texas Tech University, a role he has held since August 2023. Before arriving at Texas Tech, he spent over two decades at UC Davis, where he rose from Assistant Professor to Executive Associate Dean of Engineering, overseeing graduate programs, capital projects, and the construction of the Diane Bryant Engineering Student Design Center.\n\nOriginally trained as a theoretical physicist at the University of Bayreuth and the Max Planck Institute for Polymer Research in Germany, Dr. Faller earned his doctorate from the University of Mainz in 2000. His postdoctoral work at the University of Wisconsin led him to pivot into chemical engineering, a move that would define the next chapter of his career.\n\nHis research in multiscale modeling of soft materials has earned him a Department of Energy Early Career Award, the Joe & Essie Smith Endowed Chair in Chemical Engineering, and over 150 published scientific papers. His work spans polymer brushes, biological membranes, ceramics, proteins, COVID-19 spike protein interactions, and theoretical models of 3D printing, with collaborations spanning Lawrence Livermore National Lab, Los Alamos, and institutions around the world.\n\nA champion of education and diversity, Dr. Faller chaired graduate programs as an associate professor, led a Department of Education GAANN project for over a decade, and grew UC Davis\'s Chemical Engineering department into an independent powerhouse. At Texas Tech, he continues to push the boundaries of engineering education and research excellence across West Texas and beyond.'
+    },
+    yongchen:{
+      name:'Yong Chen',
+      photo:'images/YongChen_2023.jpg',
+      role:'Professor & Department Chair',
+      company:'Department of Computer Science',
+      loc:'Texas Tech University',
+      linkedin:'https://www.linkedin.com/in/yong-chen-92174410/',
+      bio:'Dr. Yong Chen is a Professor and Department Chair of Computer Science at Texas Tech University, where he has been a faculty member for over 15 years. He earned his doctorate in Computer Science from the Illinois Institute of Technology and completed postdoctoral research at Oak Ridge National Laboratory. His research spans parallel computing, high-performance computing, big data systems, and storage architectures, with deep expertise in parallel file systems and data-intensive computing. He has organized and contributed to major international conferences including NPC and has built a reputation as a leader in scalable computing infrastructure. Under his leadership, the CS department at Texas Tech continues to grow in research excellence, student engagement, and industry collaboration.'
+    },
+    atharva:{
+      name:'Atharva Lade',
+      photo:'images/AtharvaLade.jpg',
+      role:'Contributor · Guest Speaker',
+      company:'The Apache Software Foundation (Iggy)',
+      loc:'Austin, TX',
+      linkedin:'https://www.linkedin.com/in/atharvalade/',
+      bio:'Atharva Lade is a 13-time hackathon champion with over $65,000 in prize winnings, a core contributor to Apache Iggy, a next-generation ultra-low-latency message streaming engine built in Rust, and a two-time Dell Technologies ML/Gen AI intern who architected systems projecting $131M in savings. He publishes technical deep-dives on Medium and is graduating from Texas Tech with a 4.0 GPA in Computer Science and Mathematics. Invited by Google to I/O and their Munich office, Atharva embodies the kind of relentless curiosity and execution that DevCon was built to celebrate.',
+      talk:'Every Millisecond Counts: Message Streaming and the New Shape of Low-Latency Infrastructure',
+      abstract:'Have you ever wondered how massive distributed systems handle millions of events in real-time? For years, traditional message queues handled this by passing transient messages between services. But as data scale exploded, the industry had to evolve from simple queuing to persistent message streaming giving rise to append-only log architectures like Apache Kafka. In this session, we\'ll break down this critical shift, starting from the ground up to explain why modern microservices desperately rely on high-throughput streaming infrastructure to survive. But what happens when the industry standard becomes the bottleneck? Enter Apache Iggy. Drawing on my experience as a core contributor, I\'ll take you under the hood of this next-generation, ultra-low latency streaming engine. We\'ll explore the mechanics of high-performance infrastructure and see exactly why Iggy is fundamentally faster: leveraging Rust, thread-per-core architectures, and lock-free processing to easily handle over a million messages per second without the heavy JVM overhead or garbage collection pauses of older systems. Finally, we\'ll transition from raw performance to practical deployment by introducing LaserData, a fully managed, cloud-native implementation of Apache Iggy. We\'ll discuss how LaserData strips away infrastructure complexity so developers can harness next-generation streaming speed without the operational headaches. Whether you are a student or an entry-level engineer, you will leave this talk with a solid understanding of modern event streaming and the tools powering the fastest systems in the world.'
+    }
+  };
+
   const modal=document.getElementById('spkModal');
   if(!modal)return;
   const overlay=modal.querySelector('.spk-modal-overlay');
   const closeBtn=modal.querySelector('.spk-modal-close');
+  const talkSection=document.getElementById('modalTalkSection');
+  const bioSection=document.getElementById('modalBioSection');
+  const linkedinEl=document.getElementById('modalLinkedin');
 
-  function openModal(key){
-    const d=speakerData[key];
+  function openModal(key,isGuest){
+    const d=isGuest?guestData[key]:speakerData[key];
     if(!d)return;
     document.getElementById('modalPhoto').src=d.photo;
     document.getElementById('modalPhoto').alt=d.name;
     document.getElementById('modalName').textContent=d.name;
     document.getElementById('modalRole').textContent=d.role;
     document.getElementById('modalCompany').textContent=d.company;
-    document.getElementById('modalLoc').textContent=d.loc;
-    document.getElementById('modalLinkedin').href=d.linkedin;
-    document.getElementById('modalTalk').textContent=d.talk;
-    document.getElementById('modalAbstract').textContent=d.abstract;
+    document.getElementById('modalLoc').textContent=d.loc||'';
+    if(isGuest){
+      if(d.linkedin){linkedinEl.style.display='';linkedinEl.href=d.linkedin;}else{linkedinEl.style.display='none';}
+      bioSection.style.display='block';
+      document.getElementById('modalBio').textContent=d.bio;
+      if(d.talk&&d.abstract){
+        talkSection.style.display='block';
+        document.getElementById('modalTalk').textContent=d.talk;
+        document.getElementById('modalAbstract').textContent=d.abstract;
+      }else{
+        talkSection.style.display='none';
+      }
+    }else{
+      linkedinEl.style.display='';
+      linkedinEl.href=d.linkedin;
+      talkSection.style.display='block';
+      bioSection.style.display='none';
+      document.getElementById('modalTalk').textContent=d.talk;
+      document.getElementById('modalAbstract').textContent=d.abstract;
+    }
     modal.classList.add('active');
     document.body.style.overflow='hidden';
   }
@@ -296,11 +347,42 @@ function initSpeakerModals(){
     card.style.cursor='pointer';
     card.addEventListener('click',e=>{
       if(e.target.closest('.spk-link'))return;
-      openModal(card.dataset.speaker);
+      openModal(card.dataset.speaker,false);
+    });
+  });
+
+  document.querySelectorAll('[data-guest]').forEach(card=>{
+    card.style.cursor='pointer';
+    card.addEventListener('click',e=>{
+      if(e.target.closest('.spk-link'))return;
+      openModal(card.dataset.guest,true);
     });
   });
 
   closeBtn.addEventListener('click',closeModal);
   overlay.addEventListener('click',closeModal);
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+}
+
+function initCountdown(){
+  const target=new Date('2026-04-08T17:30:00-05:00').getTime();
+  const dEl=document.getElementById('cdDays');
+  const hEl=document.getElementById('cdHours');
+  const mEl=document.getElementById('cdMins');
+  const sEl=document.getElementById('cdSecs');
+  if(!dEl)return;
+  function update(){
+    const diff=Math.max(0,target-Date.now());
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m=Math.floor((diff%(1000*60*60))/(1000*60));
+    const s=Math.floor((diff%(1000*60))/1000);
+    const p=n=>String(n).padStart(2,'0');
+    dEl.textContent=p(d);
+    hEl.textContent=p(h);
+    mEl.textContent=p(m);
+    sEl.textContent=p(s);
+  }
+  update();
+  setInterval(update,1000);
 }
