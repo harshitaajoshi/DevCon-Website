@@ -189,6 +189,7 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .spk-photo-wrap{width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;margin-bottom:20px}
 .spk-photo-zoom{margin-bottom:0;transform:scale(1.5);object-position:center 30%}
 .spk-featured:hover .spk-photo{filter:grayscale(0);transform:scale(1.03)}
+.spk-featured:hover .spk-photo-zoom{transform:scale(1.5)}
 
 .spk-num{font-family:var(--hd);font-size:5rem;color:var(--tx3);opacity:.12}
 
@@ -301,6 +302,21 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .fq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
 .fq.open .fq-a{max-height:200px}
 .fq-a p{padding-bottom:24px;font-size:.88rem;color:var(--tx2);line-height:1.7;max-width:580px}
+
+/* ============================================
+   ORGANIZERS
+   ============================================ */
+#organizers{padding-top:40px}
+.org-row{display:flex;flex-direction:column;gap:20px;max-width:900px;margin:0 auto}
+.org-hero{display:flex;gap:40px;align-items:center;background:var(--card);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;transition:border-color .3s var(--ease)}
+.org-hero:hover{border-color:var(--lime)}
+.org-hero-img{flex:0 0 320px;height:400px;overflow:hidden}
+.org-hero-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2);transition:filter .5s,transform .5s}
+.org-hero:hover .org-hero-img img{filter:grayscale(0);transform:scale(1.04)}
+.org-hero-info{flex:1;padding:40px 40px 40px 0;display:flex;flex-direction:column;gap:12px}
+.org-tag{font-family:var(--bd);font-size:.6rem;font-weight:600;color:var(--lime);letter-spacing:2.5px;text-transform:uppercase}
+.org-hero-name{font-family:var(--hd);font-size:clamp(2rem,4vw,3rem);color:var(--tx);line-height:1;letter-spacing:-1px}
+.org-hero-desc{font-family:var(--bd);font-size:.88rem;color:var(--tx2);line-height:1.7;max-width:380px}
 
 /* ============================================
    REGISTER
@@ -416,6 +432,9 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
   .slide-counter{top:16px;right:16px}
   .ptr-row{flex-direction:column;margin:0 0 40px}
   .faq-list{max-width:100%}
+  .org-hero{flex-direction:column;gap:0}
+  .org-hero-img{flex:none;width:100%;height:300px}
+  .org-hero-info{padding:28px}
   .reg-wrap{max-width:100%}
   .reg-form{padding:24px 16px}
   .rr{grid-template-columns:1fr}
@@ -440,7 +459,7 @@ button{cursor:none;border:none;background:none;font-family:var(--bd);color:inher
 .spk-modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid var(--brd);background:transparent;color:#fff;font-size:16px;cursor:pointer;display:grid;place-items:center;transition:all .3s}
 .spk-modal-close:hover{border-color:var(--lime);color:var(--lime);background:rgba(212,232,122,.08)}
 .spk-modal-header{display:flex;gap:24px;align-items:center;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--brd)}
-.spk-modal-photo{width:120px;height:120px;border-radius:16px;object-fit:cover;border:2px solid var(--brd)}
+.spk-modal-photo{width:120px;height:120px;border-radius:16px;object-fit:cover;object-position:center top;border:2px solid var(--brd)}
 .spk-modal-info{display:flex;flex-direction:column;gap:4px}
 .spk-modal-info h2{font-family:var(--hd);font-size:2rem;color:#fff;letter-spacing:-.5px;margin:0}
 .spk-modal-role{font-size:.85rem;color:var(--lime);font-family:var(--bd)}
